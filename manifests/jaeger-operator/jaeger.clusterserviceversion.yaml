@@ -1,0 +1,155 @@
+#! validate-crd: ./deploy/chart/templates/03-clusterserviceversion.crd.yaml
+#! parse-kind: ClusterServiceVersion
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  name: jaeger-operator.v1.7.0
+  namespace: placeholder
+  annotations:
+    tectonic-visibility: ocs
+    alm-examples: '[{"apiVersion":"io.jaegertracing/v1alpha1","kind":"Jaeger","metadata":{"name":"my-jaeger"},"spec":{"strategy":"all-in-one","all-in-one":{"image":"jaegertracing/all-in-one:1.7","options":{"log-level":"debug","memory.max-traces":100000}}}}]'
+spec:
+  displayName: Jaeger
+  description: Jaeger Operator for Kubernetes
+  keywords: ['jeager', 'tracing', 'distributed']
+  version: 1.7.0
+  maturity: alpha
+  maintainers:
+  - name: CNCF
+    email: support@cncf.com
+
+  provider:
+    name: CNCF
+  labels:
+    alm-owner-etcd: jaeger-operator
+    operated-by: jaeger-operator
+  selector:
+    matchLabels:
+      alm-owner-etcd: jaeger-operator
+      operated-by: jaeger-operator
+  links:
+  - name: Jeager Operator Source Code
+    url: https://github.com/jaegertracing/jaeger
+
+  icon:
+  - base64data: iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4goMEwYpnbaV8wAAF4pJREFUeNrdnXl8VOW5x7/ve2YmOwkEQoBgAmFXNGBFsYILCtTahVJqW0W9tXXpvdrP1d5bteBWt+q9Vmtd2tsqAq7XAtYFFaRlUQEVBJQdIQIKCcFAtsnMnPPcP54zZAyBTMIEyn0+n/NhJmfOOe/5vc/+PO+L4f8RlS+fDhAEMoD9AMUjLjuqY7DHGoRUkQ9mGnAL8DiQcyzGETjWQKSCfDABfgjcDJQDWUDN0R7LcQ9ogpgXATegXPolUN/C7zJRqaztKFVw3APq05nA9cAQ//sGoBagfPn0oP83AS4FlgKrO2ogxzWgCaI+BJgAGP/7UsDzP49HuXUw8C/A3I4c03ENqE8OMJImMHcBS/zPpwH30QToHOCLjhzMcQtoAneeDIxJOLUISAfOAx6kSQ3sB2YAsY4c11EB9MoHCuMfc1HjkQVEgGrUgNQCLsBf/mPXYe/lA2mBnqgV/4X/GVTMi4En/Wf1Tvj7H4EF0LG+qTnyWyQFZA/UpZkE9EM5KOYDshvYDKwCVgDrULGNtQRwAqD/DQwAzkGt96GoBvgzcAewr6Md/Q4D1AczAFwITAFOpfVAIgzsQIH9B/AOsAloAAXXB9Sg4ntJK/fbA/wVuBWoOBpRU8pFvpl434i6M7lJXp6OcnA/lJv3oOC+Ccy/8oHCDQvL50XOLr7A4dCRUIOBKlHfNBtVKdUdjqRPKeXQBDB7AvejYu6k4NYCVADvCPLS13qMXHzRgInTBRlFE1OELfLXCM4z62y3PZ2k0ekjX/YAlghUnjDi8uML0AQw+wJ/AL7RQWN2M4IZv5ky+r4F9Y0N+Y5jbwZOdJCpDwbPXFxhsn7iICMFal3so584+S/09Grl9VO6dCySPqVE5JuB+Se+6sakmvbX1NW/Xzj84hOB4OZ3nrwrPej0uz107oqYcaYHrRkMBkSwntu3zK1YD3zUkSAm0hFzaAKYvVBrOr4jB2wdnp95W8UTDTXebKB8RGnB2FF/e79rVSzwrNvQULbt7deo3rJRikaNMd2HjQDV4Y8ATCsr6sih6fhSdJ884AE6GEwAY8yihhrvLKAzwGfdBgX2usFfiuuWrXnqUTa+9Az1FbtZ/aeHJVpXizGm9xE+sk10RCLvc6cD/BK4+CiMt9GNyU5guP/9rXGPzTwVYyZVrVtD1bo1jLrrYWLherP6z4+IcRzEZxr7wdXx8QZRvzUNDSb2AbHWAoqjAqhPZwDX0rHJ6lpPvGWCPD+gqM8S2DUa2N25/+A5Nhj8FSI5e9d/LAN/cJnJ7dOP8rdfl54jzzbBzCxE2Ou8UtSH9O5j0Xi+FOiOulQxNCH9aqoGmgpA++CLX4opKsgWz3PfTA9mvn7p0J9W9+nc7zyM/OKZgbc898mG8r9fOG12J3Hd88TzyOs3kPxBQ3GjETK6FlBwytcQEQH7GaHO1wL/0ez+AvyNFBusNgF6xUc7QA2ZADDva/HvqaKIIFs9z1tijZ13Zu+zN19QelGxY5wfuuKNjXmxXkD4zWfu7u6lZ906NZZzB0iOsZZuQ4cbYy2IkD/oJIOxILKf8M7tGPvDZs+pQsskD/mfjy6gPpDZaM7xLDT2fo6skh3UbYv6ALcH2KgglSKy3hNvWcgJLRtZNHrnOX3GFaY5aee64t4iIgNdcdMSrkn3PPfU2ZGiYqycH/+jsQkax/hzbuxWu/XJeowzOD5hwNto0LEYcFOlO5MG1AczAPwauBFjNAMu8m131GtXOa+WLPOcjN8Cw40xfQymC1p1dHyQPR+4BoRqQXaJeFsFWRd0Qhv6dR6067w+4wO9cnr3x5iLPHFHikhpzIultzCcRmBVEO/+lbbHYKPqxgUawIT9867/3HRM4C2zc04xmB7AcuBRNCe6H1rPbLWHWuUqH9DB6Mz2iNbsAyDYKQ9E5gdg8m+ify/c3VCVu3r3h/Vb9m4MVof3pkfcxpCIGMc6sfRARqRLRtfGkrzSWL8ug0IFWYX5ISfUV+AkEW+oJ14p0IVDG7YKxzgLol501urdK5bNOfnhz9j/xSQRORlhDZE9e0z9jjCNFS5ug4A1OBkBGvd8YdfdOwGkAde+KEV5e0KPb+KJ91KOY5sBPQdjXm+s3JWx6dH7xQuHTcnl15A75BSJeXLnbyILPjTI4wZTb4ypMJgvgQYMHkJQIAskT0S6CNIF6IS6L4ejWmvsKmvsK7tqP1807aPH0/c37jvDGvPGU/9ZGQIT/dn9edWemF9gbF8wXcDE3aEGJLaEWP2T3vBHGqXXt89HvHokNgNsdFpZrw4DNFmjtN9YGw5X7MqwoTQ6DRpK+bN/YdCNt5lgXpef/T54xrx/j767xIOLRaT/gaukTWMRoNoa+4k1dkFtpHbxrHXP7Nuw55Nhxtip1tjhaaHgfU/dtCsHmAnyskfaLCw/pSkf2oC4S0Cme0Omrpfek84HMxkvOhSoRy3Vn6/4aEeHRU3JAlounrc1o7BX58xeJ9DzW98nur+aqmVL6DH+uz0rTdYPojgzHLyL0Gx8MuQB+4wxn1ljVxnM0sq63R+/svGlyJYvNw4BfmKNPcuxgV6AWMfc98I9lQuijfI0UJOV6zxlHC4Rj0yQSsSdi017wRsxrVI6Dx+PF/01yACQuBrJBm4HPgaWdhSoyQJahchboS5dh3cZcRYGQ9F3f0Tl4vnihhuME0qb8HSw7LmfRVc84xlzFkImEEJViguEMabGwB5j7E6D2eKJu7mybvfOd7f/I7ymYmVBOBYus8bebI0pc4zTnSZ96lnLH+c99eWMfZWxx4ACJ2CuuOT2gmFuzDsHL3oPWX1ec8+YGSLU5Xt4se/iRYpoWZ31QqO6y2hWt08VJeXq+Hp0GPAaIj0AsJbGil0EO+Vh09JqMfan4z789tzqtN4DCrIKbXYox1hjTaPb6O0Lfym7ar8wu2p3pleH93aOuJEiYIA1drAxpr9RK5zWwqPFWGZ8OLf2rpXza+9FC2/XXHV/5t9dSRspJ/x4pzdkSimYHyKxc9GcQmtUiyav34DUJ0wOyaEJWaQM5p16PiatIjbmvWeN4UZ9VSGtoPBLY+2rTihjmvn4to3zq7b/Qth+JUIDSIOAZyAAJh1DtsFkA5kBG2jNIMXBfG7dO/V3rZxf+2tgLPDLH7yyaHa06IRBYtNPBO9WxB2KSkOylI3mHebhFwY7HNAEMIuBO8FcjBd+2+5ZNEW6jR4L0h/jzBHPfWzOhNFfVH+6yZ58bpYZ8c2c9x3HdPJcGSdiTjKtW/JEimHYihAAeljLjDWL6h9Y+vL+m4CJwJTJyze/76RlPCki5yOx7rQ/SjsbOAHYmmpAWxyQD6hFHeFrDrywuDe449duwovkBt6/dPXy6f+oXL1YnkSjp23AImN5a/jY7G2njssZICITPZcxQGESL//41lXhR7LynECvgaGCuU/s3V3+SeMU4JvArZe8s3ZhMDv3fxAZzpFTDPgR8BKkVuwPByhoR8alaAfGCcB+PPfn4A3BBn7uxpjy9C27q0T4mv+bEUA3tFI5OyPHvvGtf82Pdi4MnOm5Ms7zOMU/H0GtfJp+lu2NdbFLZ95edSUqFR8D3wUKgJsvXbpxdSAj63FEitEycwUq5iVo9iijHe/+IFpE7HhAmwFrUEe8O9ADcQ3ingBSgHi78zLr5v7XdbE9xmDQ+vto4PtovdygpeC/5XYLrPz6xE6xwr6hrm5UGj1XoqGstCzSe0Ylf0RYSq/8/KkRw85D5CZUz600jvP7y1d8FgBuQmQ58CywBS03W9QInY6mD8fStmTPQpT7644aoM3pitWVoBXNfwE8JFaPF41gTARjozYQcJ1gKLqv/NNPX73km6a+YtdY4DvAIDTO3ohybzqwftK8ldOzuvd4APEGIlIPct/KRx/YULPzM1t2zQ3BvNIBF3nR6AXA3WgpWRJf3vc+QMvUNwH/TsveQkv0Oeo1bDgmgCYM/mo09dXStfHYqMIGAguMdWZv+OvMtUvvvrlrLBw+A1ULxSh3TZ+8bPMaJy19Dk019npj7KcYGsWT3r5TfgXwGhxaNP2xZQC/88eXDEWBHwBzjiWgAVTsJiV5mYsxW20gsNhYZ1FDVcWmio8+qBU3Jr3OOq+HdQI3oxb3UPQQque81l7aH19/4HW0USIZugONnlKmR9uase9MUzfb4agBdUl2IoIXjZ4G0Ymh7E5O0agxXwIeIvkcPkzdB7yYDJgJtAkF9Pokf1+GunbRVIAJba8D5QNdD3M+gpYVJqH66VvARSgXXgS8iEhnRE6g9Zi/3AcoKUoAfRlNzbat0QA0bZgyaiuHZqMGpSWqB+4BHsZvx054yb1XfLRjsf+yC9GMeUErzzrQJ19aXJL4/EFAHQp2bEv5tubXVaIcl4xx6onq9N2pArStHGo5tDH6vQ9U7bSyooN0kv89AjyNduM1tPKsdL464Z3RFp+3/eMawCSAHaeMNrxXJ2AgfMXoHlVAI7TcAbzCBzR6OH2XcG4mqusOR0VohBWn0Wh00wn1d6+jqdE2EZAhJB/yGuDEVAAZp7YCWkPLaa9ZtK13vQF4jsMbgx7Ee6SMiY81UToMB0tLLm3vXhlM23IOh6W2AroP1W3NwVkGybkeCb9ZhYaQhxvbVUBJv6tvAO2dn4VOaBXa4v05fIU7J6HhcluoL8ml/ZKithqlGrTDeGjC3xrQxljgIAPS2X/5eoBmBmS/fxyuwFMG3NfjGxOudzKyKjY8eMfVGPMH1Oh9AnijXo4v+GAs2qncllQeqFrpgRqzow5oI2pdv9HsHmnNwByMGqihaPn2P9FsVCIFSU7UJgG5BeeMvav7eeOXu7HYku8P682sVTvj5/PRxt6bUL3bVspFkywpWQzWnlacdc2+Z6MRynKM9mWiBuMi/3wxOgm/Li0uSeTS3mjmCYwh3vUhIhjVmYjngYr+eOA08byF1tp3Z63a+Tk6iYNQf7eM9uvBIOqPkoo6U9KATisriuuqT1CRy/ZPWXRhwouDbrgtuv6/b3cOANVEB74n6LtxQK6xlsjeKqo/XkHtlg0Sq601obzO5JWNoNPgoYkdIfnA9/wjnjNIVRvQgBTdp10cugnYjop1nC4ExnQbNeaNDQ/e6Yp4LwLn+iB8jq7EoNvoA50zJwGTMYbq1SvY+vRj1G5ejxeNHgDoizfmUHLZNQsLvjHxAy8WyzFIT4v0NyqeyWaUkqW+qP/amm/cIYBWAB80AzQPuBdjvhj20FOrPrxu8mxj7U7UJ/wIWGGcAINuvB1Uz/0WY0pjtTVsm/FH9q9djQkEME7T+obIvmqvctrDf312fN62mkg0vdaE9iy3RfsXOiUlAj83OmGp4tAiVJceE0A94O/oGqFEt6sMmJlVUnr76FfenYvIuzYYeNeLHaiDhVCX5g7USd8YjUTm1u3YdrpxnDOaPaMhEnVn3HXz5D214dgMICdbIvVj3C2fjXM3z5rr9L9hkVP8kNEkdiqoK5pAP+JmpzbPsK8DBwLzadmq1qFZ+gVodt1FDdBo1IDgYv4wzPvi5Ytlfe6dD75Q/9rbK8ZYx54MWBHZmpWZvuip3/1buFdh/j0iclrzBwTwrv1VaGyXAN7dKQI0iurmV4/UKLUX0CAa6Uxs5edx9ozLciVw3R2RBdUWucnDnG6tecdaO7u2LlwBhLIy07oZY051XXecSIsJlEaLTL4ldMHpDt6NKQIUUrS4ob0dzFE0Fp/A4aOtryz68jCP3h2ZX+dhnvYw3QE8T873PPf89LSgALiu12CUy2MGdsd75I0W83YF8Wb+LnjmTgfvOykCss7DLHIxGyzCLnNkW5W0S6n7XFqKin1JsgPPJPqdWyKLrnUxzTk7ZpCVDvLSPtI+3GY7N8SwJg2XdIkKQK1Jc9fZrt4a230gcKNRnX2kFAZuui669J0CqRvhaW/rfmAtuolBLbRt9fKR9NhvQxe4XpHk750ITrpBdifOo4HNFu+hvwUGL33X9j7dIFcZlYB61JUpAQIG0kHyjYaKKUlmCGb1xbE1i7tJ3TQPkxhO1wNvoU3Ga8uXT08a1CMB1AVeRlNqyfiF6VGcy5fbortO97ZXeNgyg2zYZvJeeiI44iSLTA3gfeoDOAXlkBP9Z7SWjG4noIQ7SWNAMPnNTmWifQE9gcnAxmRBbZfIly+fTvFpk7l21bbuDQRfp2ndUGvkCma+wLNZRD+vJ5AvmEss0g2tra8CnkDj/7+gYesitMmiI2hfAG/yHZEFfWPYe2m5YWIm8DMg3CGAJmxNMdHB23tz6ILRDnJ7G2/josnqICola9GEy2doKXgompH/OtoOlGzPaZtJYG0W0Z/eEln0LRfzKw42sjWoSzUfWtenbcqHJoA5DPidYC7PIvomCem7JMlBuSGucgajGf8b0TD2PFQ/P9KRYAIYGFJH6LevO/1fNEhL3fc5aIdJUtSe1W8O8HOgt4cZc1X0g7CHWXjk78V3gP9CExUGzZMele3WDDJqkVNyrkWePcRPTibJ/qn2ANqPpjJDUXepPcfDvEQH7zbT0WSRsRUmew0HVyRAM2tJeRZJAVpaXEJpcQl5uVmgzVkHimMu5vsjve2rRdN6xy0ZKP3IFjYapKWyTBWaXG+VDuk2NStlDANGnnj29fOWvvbboa7rHZgIwQz/dmx93/dCvWcF8E451sC0lwxSuNoW5lzgbvlU/NJy/BU9T+aPmnDLmLRQMFBaXLIUvxbWQk9AqxxaAryAbm92Z26nzJ724PXnGcCkTjTOJYUNA8eAcqpMZh+LvJv4x0DA+d+p9z+7MhQMPILmdd9EU4e00BPQKqCCRi0e4KWnhVxpwep6mLH/Gl0mHmbesUblSMggw13sy2jbZbXj2N/f+eCLj73z/vpbjTF9UTsR4zCtPq1FSuVo3nMoMML1vO3iSUt1+cI8CV+INndNpH0dxcecLDLsntDo7VOjC79XXduYc9n1Dwf3Vtf+xFpTg+Zx30OT61XQssgn5djHi2sVq5+nIRy5Db8FsNmN3nvb6fvjfzgl9xk1XOn+EUItpMOx3VHXQwOKGBpUhNGYvQbtN9gLrAfur97wyd6FV/0olNspu9CxttE/Fz0UiG0GNE6+Y38y2nBQmnBqLzClnuAf7w2NzrJILhoPZzc7svwj0z/ioKclAB/wj/gEtDQJXgJArv+y8aPRByuMljTq0XRgHZo9Sjzq/PMNNGszam9OtD3JkdXAT/yjB6oWngcWZhL1ppf1qqGNW/UmVEJNwr8ttdokktBU/Tzw+WjsfHM4OpJY3tLUrOod7d24/1mpQ3dnPFJKcEs6o00NfdFiWg46mRblzAY0sHgDaGhNz3UkHQ8bsg5CdysbjurdQzHBNmANun3HMaPjYR97ixqYatSAtLQKfzPaKJbypYZtpQ7h0ARRTUPFM+ADEUHFsxGQJEVzLZo97+4fk9BdbRMLgLPR1SnusRR3SDGgPpDxFXXj0ZRcX9Ql8mjitK3AM6XFJW9Dk2+XcH3cdYo32Ro0CxSjaRVdIl2NRjd/btaQdvwBmsCN6WjP0gQ0wz2g2YsL6vftRt2qzGb36IkuaSxDa0iZNAUE8YR0vn/OJNwz6t/3n8IetHkQCVyUhi5JKUZbbMagIWomyoXL0daWHaivus3/dwea4T8Qefj3/DowlYN3x4miqiKC6tByf1Iq/Ge/hZZ+z0S7VTb+0wKawH2d/MH3RRPM/dFIqRgV73Xo6o77aOLAWlRfxuLAtULvoQHCmf71r6FiPgHl1If9313lT9RjaGlikw9kF7Qr8JjSQYD6IIbQdZlp/jEVFeHcQ0zCbh+4vqgYlgONbdRl8ftuR7n5ebR1J4Aao499IDei4eZ2YFXCM1K65Vp76SCfzgc0H90PtCtaxp2AFtKy+aqhaH69oP8Px/eAdW0BNEGVOD5gyXoB/1R0KJHfj1YdL/Q/z6ZJL+bSVLRahSZGClD3aAW6KKvNzrUPnnCc16YO2sG7S14eqIuzDngFFbUACvA61AAF0VDvSVSPnokaj+eA9wHveOSuVFDSsbwvkpamtptGFOhh6ARsQbn1mPqBx5r+D8mkucWZ6exTAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTEwLTEyVDE5OjA2OjQxLTA0OjAwytlGdAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0xMC0xMlQxOTowNjo0MS0wNDowMLuE/sgAAAAASUVORK5CYII=
+    mediatype: image/png
+  install:
+    strategy: deployment
+    spec:
+      permissions:
+      - serviceAccountName: jaeger-operator
+        rules:
+        - apiGroups:
+          - io.jaegertracing
+          resources:
+          - jaegers
+          verbs:
+          - "*"
+        - apiGroups:
+          - ""
+          resources:
+          - pods
+          - services
+          - endpoints
+          - persistentvolumeclaims
+          - events
+          - configmaps
+          - secrets
+          verbs:
+          - "*"
+        - apiGroups:
+          - apps
+          resources:
+          - deployments
+          - daemonsets
+          - replicasets
+          - statefulsets
+          verbs:
+          - "*"
+        - apiGroups:
+          - extensions
+          resources:
+          - ingresses
+          verbs:
+          - "*"
+      deployments:
+      - name: jaeger-operator
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              name: jaeger-operator-alm-owned
+          template:
+            metadata:
+              name: jaeger-operator-alm-owned
+              labels:
+                name: jaeger-operator-alm-owned
+            spec:
+              serviceAccountName: jaeger-operator
+              containers:
+              - name: jaeger-operator
+                args: ["start"]
+                image: jaegertracing/jaeger-operator:1.7.0
+                ports:
+                - containerPort: 60000
+                  name: metrics
+                env:
+                - name: WATCH_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: OPERATOR_NAME
+                  value: "jaeger-operator"
+  customresourcedefinitions:
+    owned:
+    - name: jaegers.io.jaegertracing
+      version: v1alpha1
+      kind: Jaeger
+      displayName: Jaeger
+      description: Represents a Jaeger tracing instance.
+      resources:
+        - kind: Service
+          version: v1
+        - kind: Pod
+          version: v1
+      specDescriptors: 
+        - description: Deployment strategy for the Jaeger cluster.
+          displayName: Strategy
+          path: strategy
+        - description: Whether ingress is enabled for the all-in-one deployment.
+          displayName: Query Ingress Enabled
+          path: all-in-one.ingress.enabled
+          x-descriptors:
+            - 'urn:alm:descriptor:com.tectonic.ui:booleanSwitch'
+        - description: Image used for the query deployment.
+          displayName: Query Image
+          path: query.image
+        - description: Whether ingress is enabled for the query deployment.
+          displayName: Query Ingress Enabled
+          path: all-in-one.ingress.enabled
+          x-descriptors:
+            - 'urn:alm:descriptor:com.tectonic.ui:booleanSwitch'
+        - description: The desired number of member Pods for the query deployment.
+          displayName: Query Cluster Size
+          path: query.size
+          x-descriptors:
+            - 'urn:alm:descriptor:com.tectonic.ui:podCount'
+        - description: The desired number of member Pods for the collector deployment.
+          displayName: Collector Cluster Size
+          path: collector.size
+          x-descriptors:
+            - 'urn:alm:descriptor:com.tectonic.ui:podCount'
+        - description: The strategy used by the agent.
+          displayName: Agent Strategy
+          path: agent.strategy
+          x-descriptors:
+            # TODO(alecmerdler): Dropdown select component for console (options are: Sidecar, DaemonSet)
+            - 'urn:alm:descriptor:com.tectonic.ui:select'
+        - description: The type of storage used for the query and collector deployments.
+          displayName: Storage Type
+          path: storage.type
+          x-descriptors:
+            # TODO(alecmerdler): Dropdown select component for console (options are: memory, cassandra, elasticsearch, kafka, managed)
+            - 'urn:alm:descriptor:com.tectonic.ui:select'
+      statusDescriptors: []

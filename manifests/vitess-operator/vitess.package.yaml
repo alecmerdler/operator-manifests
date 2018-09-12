@@ -1,0 +1,5 @@
+#! package-manifest: ./manifests/vitess-operator/vitess-operator.v0.9.2.clusterserviceversion.yaml
+packageName: rook
+channels:
+- name: alpha
+  currentCSV: vitess-operator.v0.9.2

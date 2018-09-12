@@ -1,0 +1,5 @@
+#! package-manifest: ./manifests/rook-operator/rookoperator.v0.7.1.clusterserviceversion.yaml
+packageName: rook
+channels:
+- name: alpha
+  currentCSV: rookoperator.v0.7.1

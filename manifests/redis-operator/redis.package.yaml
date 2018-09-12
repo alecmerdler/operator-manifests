@@ -1,0 +1,5 @@
+#! package-manifest: ./manifests/redis-operator/redis-operator.clusterserviceversion.yaml
+packageName: redis
+channels:
+- name: alpha
+  currentCSV: redis-operator.v0.0.1

@@ -1,0 +1,5 @@
+#! package-manifest: ./manifests/jaeger-operator/jaeger-operator.clusterserviceversion.yaml
+packageName: jaeger
+channels:
+- name: alpha
+  currentCSV: jaeger-operator.v1.7.0

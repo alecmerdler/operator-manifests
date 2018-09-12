@@ -1,0 +1,5 @@
+#! package-manifest: ./manifests/elk-operator/elk.clusterserviceversion.yaml
+packageName: elk
+channels:
+- name: alpha
+  currentCSV: elk-operator.v0.0.1

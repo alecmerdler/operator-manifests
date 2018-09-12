@@ -1,0 +1,5 @@
+#! package-manifest: ./manifests/postgres-operator/postgresoperator.v3.1.0.clusterserviceversion.yaml
+packageName: postgres
+channels:
+- name: alpha
+  currentCSV: postgresoperator.v3.1.0
